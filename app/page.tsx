@@ -194,7 +194,12 @@ export default function Home() {
   )
 }
 
-function ProjectCard({ title, description, link, tags }) {
+function ProjectCard({ title, description, link, tags }: {
+  title: string
+  description: string
+  link: string
+  tags: string[]
+}) {
   return (
     <motion.div 
       whileHover={{ y: -5 }}
@@ -218,7 +223,12 @@ function ProjectCard({ title, description, link, tags }) {
   )
 }
 
-function ExperienceCard({ title, company, period, description }) {
+function ExperienceCard({ title, company, period, description }: {
+  title: string
+  company: string
+  period: string
+  description: string
+}) {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
       <h4 className="text-xl font-bold mb-2">{title}</h4>
