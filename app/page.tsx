@@ -77,7 +77,7 @@ export default function Home() {
             </div>
             <div className="md:w-1/2 flex justify-center">
               <Image
-                src="/profile.jpg"
+                src="/images/profile.jpg"
                 alt="Divax Shah"
                 width={300}
                 height={300}
@@ -179,7 +179,7 @@ export default function Home() {
             <h3 className="text-3xl font-bold mb-4">Let's Connect!</h3>
             <p className="mb-6">Interested in innovative AI solutions or cutting-edge research? Let's discuss how we can create impact together.</p>
             <Button asChild>
-              <a href="/documents/divax-recco.pdf" download>
+              <a href="/documents/Resume.pdf" download>
                 <FileText className="mr-2 h-4 w-4" /> Download Resume
               </a>
             </Button>
