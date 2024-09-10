@@ -17,6 +17,9 @@ export default function Home() {
 
   if (!mounted) return null
 
+  const switchTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark')
+  }
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100 transition-all duration-300">
       <header className="sticky top-0 z-10 backdrop-blur-md bg-white/75 dark:bg-gray-900/75 shadow-sm">
@@ -95,17 +98,16 @@ export default function Home() {
           >
             <h3 className="text-3xl font-bold mb-8">Skills & Expertise</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {[
-                'Python', 'TensorFlow', 'PyTorch', 'Computer Vision', 
-                'Natural Language Processing', 'Machine Learning', 
-                'Deep Learning', 'Data Analysis', 'OpenCV', 'NumPy', 
-                'Pandas', 'Scikit-learn', 'HuggingFace Transformers', 
-                'Streamlit', 'OpenAI API', 'Google Gemini API'
-              ].map((skill) => (
-                <div key={skill} className="bg-white dark:bg-gray-800 rounded-lg p-4 text-center shadow-md hover:shadow-lg transition-shadow">
-                  {skill}
-                </div>
-              ))}
+            {[
+              'Python', 'PyTorch', 'TensorFlow', 
+              'Natural Language Processing', 'Computer Vision',
+              'HuggingFace Transformers', 'OpenAI API',
+              'Google Gemini API', 'Streamlit'
+            ].map((skill) => (
+              <div key={skill} className="bg-white dark:bg-gray-800 rounded-lg p-4 text-center shadow-md hover:shadow-lg transition-shadow">
+                {skill}
+              </div>
+            ))}
             </div>
           </motion.div>
         </section>
@@ -118,6 +120,24 @@ export default function Home() {
           >
             <h3 className="text-3xl font-bold mb-8">Featured Projects</h3>
             <div className="grid md:grid-cols-2 gap-8">
+              <ProjectCard
+                title="QuizWiz"
+                description="QuizWiz is an advanced, AI-powered chatbot creation platform that enables users to build, deploy, and interact with custom chatbots. It offers a user-friendly interface for creating intelligent conversational agents tailored to specific domains or purposes, leveraging cutting-edge natural language processing technologies."
+                link="https://quizwiz-mtcq.onrender.com/"
+                tags={['NLP', 'Chatbot', 'Flask']}
+              />
+              <ProjectCard
+                title="Something"
+                description="Something is a powerful, user-friendly web application designed to keep investors informed with the latest, most relevant news about their stock portfolio. By aggregating news from multiple trusted sources and using AI to summarize key points, Something ensures you never miss crucial information that could impact your investments."
+                link="https://something-atep.onrender.com"
+                tags={['Flask', 'Firebase', 'Gemini AI']}
+              />
+              <ProjectCard
+                title="Sanskrit Llama"
+                description="Sanskrit Llama is a project focused on fine-tuning the Llama-3 language model to translate Vedic Sanskrit texts into English. By leveraging transfer learning techniques and a curated dataset of Sanskrit-English parallel texts, this project aims to make ancient Sanskrit literature more accessible to a wider audience."
+                link="https://huggingface.co/diabolic6045/Sanskrit-llama"
+                tags={['NLP', 'Translation', 'Fine-tuning']}
+              />
               <ProjectCard 
                 title="Geolocation through Image Classification"
                 description="Developed a deep learning model to identify Indian cities from images, achieving 66.3% accuracy. Implemented transfer learning using VGG16 CNN for feature extraction."
