@@ -76,6 +76,11 @@ export default function Home() {
                     <Mail className="mr-2 h-4 w-4" /> Contact
                   </a>
                 </Button>
+                <Button variant="outline" asChild>
+                  <a href="https://huggingface.co/diabolic6045" target="_blank" rel="noopener noreferrer">
+                    <Image src="/images/huggingface-logo.png" alt="HuggingFace" width={16} height={16} className="mr-2" /> HuggingFace
+                  </a>
+                </Button>
               </div>
             </div>
             <div className="md:w-1/2 flex justify-center">
@@ -123,43 +128,58 @@ export default function Home() {
               <ProjectCard
                 title="QuizWiz"
                 description="QuizWiz is an advanced, AI-powered chatbot creation platform that enables users to build, deploy, and interact with custom chatbots. It offers a user-friendly interface for creating intelligent conversational agents tailored to specific domains or purposes, leveraging cutting-edge natural language processing technologies."
-                link="https://quizwiz-mtcq.onrender.com/"
+                links={[
+                  { label: 'Tool', url: 'https://quizwiz-mtcq.onrender.com/' },
+                  { label: 'Website', url: 'https://quizwiz.vercel.app/' }
+                ]}
                 tags={['NLP', 'Chatbot', 'Flask']}
               />
               <ProjectCard
                 title="Something"
                 description="Something is a powerful, user-friendly web application designed to keep investors informed with the latest, most relevant news about their stock portfolio. By aggregating news from multiple trusted sources and using AI to summarize key points, Something ensures you never miss crucial information that could impact your investments."
-                link="https://something-atep.onrender.com"
+                links={[
+                  { label: 'App', url: 'https://something-atep.onrender.com' }
+                ]}
                 tags={['Flask', 'Firebase', 'Gemini AI']}
               />
               <ProjectCard
                 title="Sanskrit Llama"
                 description="Sanskrit Llama is a project focused on fine-tuning the Llama-3 language model to translate Vedic Sanskrit texts into English. By leveraging transfer learning techniques and a curated dataset of Sanskrit-English parallel texts, this project aims to make ancient Sanskrit literature more accessible to a wider audience."
-                link="https://huggingface.co/diabolic6045/Sanskrit-llama"
+                links={[
+                  { label: 'Model', url: 'https://huggingface.co/diabolic6045/Sanskrit-llama' }
+                ]}
                 tags={['NLP', 'Translation', 'Fine-tuning']}
               />
               <ProjectCard 
                 title="Geolocation through Image Classification"
                 description="Developed a deep learning model to identify Indian cities from images, achieving 66.3% accuracy. Implemented transfer learning using VGG16 CNN for feature extraction."
-                link="https://huggingface.co/diabolic6045/indian_cities_image_classification"
+                links={[
+                  { label: 'Model', url: 'https://huggingface.co/diabolic6045/indian_cities_image_classification' }
+                ]}
                 tags={['Computer Vision', 'Deep Learning', 'Transfer Learning']}
               />
               <ProjectCard 
                 title="Character Chatbot"
                 description="Built an NLP chatbot using Python, TensorFlow, and HuggingFace Transformers for interactive conversations with fictional characters like Tony Stark and Harry Potter."
-                link="https://huggingface.co/diabolic6045/tony_stark_chatbot"
+                links={[
+                  { label: 'Model', url: 'https://huggingface.co/diabolic6045/tony_stark_chatbot' }
+                ]}
                 tags={['NLP', 'Chatbot', 'HuggingFace']}
               />
               <ProjectCard 
                 title="Itinerary Generator"
                 description="Developed an advanced itinerary builder by fine-tuning GPT-2 on worldwide trip plans, using PyTorch and Hugging Face's Transformers for on-demand travel itinerary generation."
-                link="https://huggingface.co/diabolic6045/itineraries_Generator"
+                links={[
+                  { label: 'Model', url: 'https://huggingface.co/diabolic6045/itineraries_Generator' }
+                ]}
                 tags={['NLP', 'GPT-2', 'Fine-tuning']}
               />
               <ProjectCard 
                 title="Synthetic Data Generation"
                 description="Created a generative AI system for synthetic structured data generation, implementing a pipeline with Python and Gradio for data cleaning, deduplication, and embedding."
-                link="/documents/divax-recco.pdf"
+                links={[
+                  { label: 'Paper', url: '/documents/divax-recco.pdf' }
+                ]}
                 tags={['Generative AI', 'Data Synthesis', 'PyTorch']}
               />
             </div>
@@ -214,10 +234,10 @@ export default function Home() {
   )
 }
 
-function ProjectCard({ title, description, link, tags }: {
+function ProjectCard({ title, description, links, tags }: {
   title: string
   description: string
-  link: string
+  links: { label: string, url: string }[]
   tags: string[]
 }) {
   return (
@@ -234,11 +254,15 @@ function ProjectCard({ title, description, link, tags }: {
           </span>
         ))}
       </div>
-      <Button variant="outline" asChild>
-        <a href={link} target="_blank" rel="noopener noreferrer">
-          View Project <ExternalLink className="ml-2 h-4 w-4" />
-        </a>
-      </Button>
+      <div className="space-x-4">
+        {links.map(({ label, url }) => (
+          <Button key={url} variant="outline" asChild>
+            <a href={url} target="_blank" rel="noopener noreferrer">
+              {label} <ExternalLink className="ml-2 h-4 w-4" />
+            </a>
+          </Button>
+        ))}
+      </div>
     </motion.div>
   )
 }
