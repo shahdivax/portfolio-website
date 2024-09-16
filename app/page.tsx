@@ -180,7 +180,7 @@ export default function Home() {
                   title="QuizWiz"
                   description="QuizWiz is an advanced, AI-powered chatbot creation platform that enables users to build, deploy, and interact with custom chatbots. It offers a user-friendly interface for creating intelligent conversational agents tailored to specific domains or purposes, leveraging cutting-edge natural language processing technologies."
                   links={[
-                    { label: 'Tool', url: 'https://quizwiz-mtcq.onrender.com/' },
+                    { label: 'Tool', url: 'https://github.com/shahdivax/QuizWiz_Deprecated' },
                     { label: 'Website', url: 'https://quiz-wiz-official.vercel.app/' }
                   ]}
                   tags={['NLP', 'Chatbot', 'Flask']}
