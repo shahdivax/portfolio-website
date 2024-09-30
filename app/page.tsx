@@ -14,6 +14,7 @@ export default function Home() {
   const { theme, setTheme } = useTheme()
   const { scrollY } = useScroll()
   const ref = useRef(null)
+  const [isOpen, setIsOpen] = useState(false)
 
   const backgroundY = useTransform(scrollY, [0, 500], [0, 100])
 
@@ -38,30 +39,74 @@ export default function Home() {
       />
       <div className="relative z-10">
         <header className="sticky top-0 z-20 backdrop-blur-md bg-white/75 dark:bg-gray-900/75 shadow-sm">
-          <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+          <div className="container mx-auto px-4 py-4 flex justify-between items-center">
             <motion.h1 
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-2xl font-bold mb-4 md:mb-0"
+              className="text-2xl font-bold"
             >
               Divax Shah
             </motion.h1>
-            <nav className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
-              <a href="#about" className="hover:text-primary transition-colors">About</a>
-              <a href="#skills" className="hover:text-primary transition-colors">Skills</a>
-              <a href="#projects" className="hover:text-primary transition-colors">Projects</a>
-              <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
+            <div className="md:hidden">
+              {/* Hamburger menu button */}
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                onClick={() => setIsOpen(!isOpen)}
+                aria-label="Toggle menu"
+              >
+                <svg
+                  className="h-6 w-6 fill-current"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  {isOpen ? (
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M19.293 4.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L21.586 10l-3.293-3.293a1 1 0 010-1.414z"
+                    />
+                  ) : (
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"
+                    />
+                  )}
+                </svg>
+              </Button>
+            </div>
+            <nav className="hidden md:flex items-center justify-center space-x-8">
+              <div className="flex space-x-4">
+                <a href="#about" className="text-lg font-medium hover:text-primary transition-colors">About</a>
+                <a href="#experience" className="text-lg font-medium hover:text-primary transition-colors">Experience</a>
+                <a href="#projects" className="text-lg font-medium hover:text-primary transition-colors">Projects</a>
+                <a href="#skills" className="text-lg font-medium hover:text-primary transition-colors">Skills</a>
+                <a href="#contact" className="text-lg font-medium hover:text-primary transition-colors">Contact</a>
+              </div>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={switchTheme}
                 aria-label="Toggle theme"
               >
                 {theme === 'dark' ? <Sun className="h-[1.2rem] w-[1.2rem]" /> : <Moon className="h-[1.2rem] w-[1.2rem]" />}
               </Button>
             </nav>
           </div>
+          {/* Mobile menu */}
+          {isOpen && (
+            <div className="md:hidden">
+              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700">About</a>
+                <a href="#experience" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700">Experience</a>
+                <a href="#projects" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700">Projects</a>
+                <a href="#skills" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700">Skills</a>
+                <a href="#contact" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700">Contact</a>
+              </div>
+            </div>
+          )}
         </header>
 
         <main className="container mx-auto px-4 py-16">
