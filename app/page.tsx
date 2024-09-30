@@ -91,7 +91,7 @@ export default function Home() {
                   />
                 </h2>
                 <p className="text-xl mb-6">Passionate about pushing the boundaries of AI and creating innovative solutions that shape the future of technology.</p>
-                <div className="flex space-x-4">
+                <div className="flex flex-wrap gap-4">
                   <Button variant="outline" asChild>
                     <a href="https://github.com/shahdivax" target="_blank" rel="noopener noreferrer">
                       <Github className="mr-2 h-4 w-4" /> GitHub
