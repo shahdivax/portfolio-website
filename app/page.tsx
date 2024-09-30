@@ -47,7 +47,7 @@ export default function Home() {
             >
               Divax Shah
             </motion.h1>
-            <nav className="flex items-center space-x-4">
+            <nav className="hidden md:flex items-center space-x-4">
               <a href="#about" className="hover:text-primary transition-colors">About</a>
               <a href="#skills" className="hover:text-primary transition-colors">Skills</a>
               <a href="#projects" className="hover:text-primary transition-colors">Projects</a>
@@ -55,14 +55,19 @@ export default function Home() {
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                onClick={switchTheme}
                 aria-label="Toggle theme"
               >
                 {theme === 'dark' ? <Sun className="h-[1.2rem] w-[1.2rem]" /> : <Moon className="h-[1.2rem] w-[1.2rem]" />}
               </Button>
             </nav>
+            <button className="md:hidden" onClick={() => setShowMobileMenu(true)}>
+              {/* Replace this with a hamburger icon */}
+              <span>☰</span>
+            </button>
           </div>
         </header>
+
 
         <main className="container mx-auto px-4 py-16">
           <section id="about" className="mb-20">
@@ -70,10 +75,10 @@ export default function Home() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex flex-col md:flex-row items-center justify-between gap-12"
+              className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12"
             >
-              <div className="md:w-1/2">
-                <h2 className="text-4xl font-bold mb-4">
+              <div className="md:w-1/2 text-center md:text-left">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">
                   <TypeAnimation
                     sequence={[
                       'AI Developer',
@@ -90,8 +95,10 @@ export default function Home() {
                     repeat={Infinity}
                   />
                 </h2>
-                <p className="text-xl mb-6">Passionate about pushing the boundaries of AI and creating innovative solutions that shape the future of technology.</p>
-                <div className="flex space-x-4">
+                <p className="text-lg md:text-xl mb-6">
+                  Passionate about pushing the boundaries of AI and creating innovative solutions that shape the future of technology.
+                </p>
+                <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
                   <Button variant="outline" asChild>
                     <a href="https://github.com/shahdivax" target="_blank" rel="noopener noreferrer">
                       <Github className="mr-2 h-4 w-4" /> GitHub
@@ -114,7 +121,7 @@ export default function Home() {
                   </Button>
                 </div>
               </div>
-              <div className="md:w-1/2 flex justify-center">
+              <div className="md:w-1/2 flex justify-center mt-8 md:mt-0">
                 <Image
                   src="/images/profile.jpg"
                   alt="Divax Shah"
@@ -125,6 +132,7 @@ export default function Home() {
               </div>
             </motion.div>
           </section>
+
           
           <section id="experience" className="mb-20">
             <motion.div
@@ -151,13 +159,13 @@ export default function Home() {
           </section>
 
           <section id="projects" className="mb-20">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.2, delay: 0.2 }}
-            >
-              <h3 className="text-3xl font-bold mb-8">Featured Projects</h3>
-              <div className="grid md:grid-cols-2 gap-8">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.2, delay: 0.2 }}
+              >
+                <h3 className="text-3xl font-bold mb-8">Featured Projects</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <ProjectCard
                   title="QuizWiz"
                   description="QuizWiz is an advanced, AI-powered chatbot creation platform that enables users to build, deploy, and interact with custom chatbots. It offers a user-friendly interface for creating intelligent conversational agents tailored to specific domains or purposes, leveraging cutting-edge natural language processing technologies."
@@ -278,25 +286,20 @@ export default function Home() {
           </section>
         </main>
 
-        <footer className="mt-20 py-8 text-center text-sm bg-gray-100 dark:bg-gray-800">
-          <p>&copy; 2024 Divax Shah. All rights reserved.</p>
-        </footer>
+       <footer className="mt-20 py-8 text-center text-sm bg-gray-100 dark:bg-gray-800 px-4">
+        <p>&copy; 2024 Divax Shah. All rights reserved.</p>
+      </footer>
       </div>
     </div>
   )
 }
 
-function ProjectCard({ title, description, links, tags }: {
-  title: string
-  description: string
-  links: { label: string, url: string }[]
-  tags: string[]
-}) {
+function ProjectCard({ title, description, links, tags }) {
   return (
     <motion.div 
       whileHover={{ y: -5, scale: 1.02 }}
       transition={{ type: "spring", stiffness: 300 }}
-      className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transition-all duration-300"
+      className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transition-all duration-300 w-full md:w-auto"
     >
       <h4 className="text-xl font-bold mb-2">{title}</h4>
       <p className="text-gray-600 dark:text-gray-400 mb-4">{description}</p>
@@ -307,7 +310,7 @@ function ProjectCard({ title, description, links, tags }: {
           </span>
         ))}
       </div>
-      <div className="space-x-4">
+      <div className="space-x-4 flex flex-col md:flex-row">
         {links.map(({ label, url }) => (
           <Button key={url} variant="outline" asChild>
             <a href={url} target="_blank" rel="noopener noreferrer">
@@ -319,6 +322,7 @@ function ProjectCard({ title, description, links, tags }: {
     </motion.div>
   )
 }
+
 
 function ExperienceCard({ title, company, period, description }: {
   title: string
