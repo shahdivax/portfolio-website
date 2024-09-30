@@ -125,46 +125,28 @@ export default function Home() {
               </div>
             </motion.div>
           </section>
-
-          <section id="skills" className="mb-20">
+          
+          <section id="experience" className="mb-20">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
             >
-              <h3 className="text-3xl font-bold mb-8">Skills & Expertise</h3>
-              <motion.div 
-                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-                variants={{
-                  hidden: { opacity: 0 },
-                  show: {
-                    opacity: 1,
-                    transition: {
-                      staggerChildren: 0.1
-                    }
-                  }
-                }}
-                initial="hidden"
-                animate="show"
-              >
-                {[
-                  'Python', 'PyTorch', 'TensorFlow', 
-                  'Natural Language Processing', 'Computer Vision',
-                  'HuggingFace Transformers', 'OpenAI API',
-                  'Google Gemini API', 'Streamlit'
-                ].map((skill) => (
-                  <motion.div
-                    key={skill}
-                    className="bg-white dark:bg-gray-800 rounded-lg p-4 text-center shadow-md hover:shadow-lg transition-shadow"
-                    variants={{
-                      hidden: { y: 20, opacity: 0 },
-                      show: { y: 0, opacity: 1 }
-                    }}
-                  >
-                    {skill}
-                  </motion.div>
-                ))}
-              </motion.div>
+              <h3 className="text-3xl font-bold mb-8">Professional Experience</h3>
+              <div className="space-y-8">
+                <ExperienceCard 
+                  title="Jr. Python Developer"
+                  company="Thinkbiz Technology Private Limited"
+                  period="May 2024 - Present"
+                  description="Currently developing an advanced pipeline for Jugaad, Thinkbiz's own product, leveraging OCR (Optical Character Recognition) and LLM (Large Language Model) technologies to extract and process text from various types of invoices. This involves thorough research and evaluation of open-source tools, including OCR systems and language models. Conducted extensive exploration and testing of open-source OCR and LLM tools to determine their efficacy in handling diverse invoice formats and languages. Built and curated specialized datasets to enhance the accuracy and reliability of the text extraction process, ensuring the system's robustness and scalability for real-world applications."
+                />
+                <ExperienceCard 
+                  title="AI and Synthetic Data Developer Intern"
+                  company="DMI Finance Private Limited"
+                  period="January 2024 - April 2024"
+                  description="Developed a generative AI system for synthetic structured data generation, from concept to deployment. This involved creating a pipeline with Python and Gradio for data cleaning, deduplication, and embedding, enhancing data quality for generative models. Additionally, I designed a robust training framework using PyTorch and Hugging Face's Transformers, enabling fine-tuning Large Language Models (LLMs) with diverse datasets, significantly improving model accuracy and performance. Introduced a user-friendly Gradio interface to streamline synthetic structured data generation, facilitating easy data synthesis for users and enhancing customer interaction with the system. This interface significantly simplified the synthetic structured data generation process for users."
+                />
+              </div>
             </motion.div>
           </section>
 
@@ -236,28 +218,46 @@ export default function Home() {
               </div>
             </motion.div>
           </section>
-
-          <section id="experience" className="mb-20">
+          
+          <section id="skills" className="mb-20">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h3 className="text-3xl font-bold mb-8">Professional Experience</h3>
-              <div className="space-y-8">
-                <ExperienceCard 
-                  title="Jr. Python Developer"
-                  company="Thinkbiz Technology Private Limited"
-                  period="May 2024 - Present"
-                  description="Currently developing an advanced pipeline for Jugaad, Thinkbiz's own product, leveraging OCR (Optical Character Recognition) and LLM (Large Language Model) technologies to extract and process text from various types of invoices. This involves thorough research and evaluation of open-source tools, including OCR systems and language models. Conducted extensive exploration and testing of open-source OCR and LLM tools to determine their efficacy in handling diverse invoice formats and languages. Built and curated specialized datasets to enhance the accuracy and reliability of the text extraction process, ensuring the system's robustness and scalability for real-world applications."
-                />
-                <ExperienceCard 
-                  title="AI and Synthetic Data Developer Intern"
-                  company="DMI Finance Private Limited"
-                  period="January 2024 - April 2024"
-                  description="Developed a generative AI system for synthetic structured data generation, from concept to deployment. This involved creating a pipeline with Python and Gradio for data cleaning, deduplication, and embedding, enhancing data quality for generative models. Additionally, I designed a robust training framework using PyTorch and Hugging Face's Transformers, enabling fine-tuning Large Language Models (LLMs) with diverse datasets, significantly improving model accuracy and performance. Introduced a user-friendly Gradio interface to streamline synthetic structured data generation, facilitating easy data synthesis for users and enhancing customer interaction with the system. This interface significantly simplified the synthetic structured data generation process for users."
-                />
-              </div>
+              <h3 className="text-3xl font-bold mb-8">Skills & Expertise</h3>
+              <motion.div 
+                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+                variants={{
+                  hidden: { opacity: 0 },
+                  show: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.1
+                    }
+                  }
+                }}
+                initial="hidden"
+                animate="show"
+              >
+                {[
+                  'Python', 'PyTorch', 'TensorFlow', 
+                  'Natural Language Processing', 'Computer Vision',
+                  'HuggingFace Transformers', 'OpenAI API',
+                  'Google Gemini API', 'Streamlit'
+                ].map((skill) => (
+                  <motion.div
+                    key={skill}
+                    className="bg-white dark:bg-gray-800 rounded-lg p-4 text-center shadow-md hover:shadow-lg transition-shadow"
+                    variants={{
+                      hidden: { y: 20, opacity: 0 },
+                      show: { y: 0, opacity: 1 }
+                    }}
+                  >
+                    {skill}
+                  </motion.div>
+                ))}
+              </motion.div>
             </motion.div>
           </section>
 
