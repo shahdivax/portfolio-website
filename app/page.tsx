@@ -249,13 +249,13 @@ export default function Home() {
                   title="Jr. Python Developer"
                   company="Thinkbiz Technology Private Limited"
                   period="May 2024 - Present"
-                  description="Developing an advanced pipeline for Jugaad, leveraging OCR and LLM technologies to extract and process text from various types of invoices. Conducting extensive research and evaluation of open-source OCR and LLM tools."
+                  description="Currently developing an advanced pipeline for Jugaad, Thinkbiz's own product, leveraging OCR (Optical Character Recognition) and LLM (Large Language Model) technologies to extract and process text from various types of invoices. This involves thorough research and evaluation of open-source tools, including OCR systems and language models. Conducted extensive exploration and testing of open-source OCR and LLM tools to determine their efficacy in handling diverse invoice formats and languages. Built and curated specialized datasets to enhance the accuracy and reliability of the text extraction process, ensuring the system's robustness and scalability for real-world applications."
                 />
                 <ExperienceCard 
                   title="AI and Synthetic Data Developer Intern"
                   company="DMI Finance Private Limited"
                   period="January 2024 - April 2024"
-                  description="Developed a generative AI system for synthetic structured data generation. Created a pipeline with Python and Gradio for data cleaning, deduplication, and embedding. Designed a robust training framework using PyTorch and Hugging Face's Transformers."
+                  description="Developed a generative AI system for synthetic structured data generation, from concept to deployment. This involved creating a pipeline with Python and Gradio for data cleaning, deduplication, and embedding, enhancing data quality for generative models. Additionally, I designed a robust training framework using PyTorch and Hugging Face's Transformers, enabling fine-tuning Large Language Models (LLMs) with diverse datasets, significantly improving model accuracy and performance. Introduced a user-friendly Gradio interface to streamline synthetic structured data generation, facilitating easy data synthesis for users and enhancing customer interaction with the system. This interface significantly simplified the synthetic structured data generation process for users."
                 />
               </div>
             </motion.div>
