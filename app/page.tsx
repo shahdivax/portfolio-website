@@ -38,16 +38,16 @@ export default function Home() {
       />
       <div className="relative z-10">
         <header className="sticky top-0 z-20 backdrop-blur-md bg-white/75 dark:bg-gray-900/75 shadow-sm">
-          <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
             <motion.h1 
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-2xl font-bold"
+              className="text-2xl font-bold mb-4 md:mb-0"
             >
               Divax Shah
             </motion.h1>
-            <nav className="flex items-center space-x-4">
+            <nav className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
               <a href="#about" className="hover:text-primary transition-colors">About</a>
               <a href="#skills" className="hover:text-primary transition-colors">Skills</a>
               <a href="#projects" className="hover:text-primary transition-colors">Projects</a>
@@ -72,7 +72,7 @@ export default function Home() {
               transition={{ duration: 0.5 }}
               className="flex flex-col md:flex-row items-center justify-between gap-12"
             >
-              <div className="md:w-1/2">
+              <div className="md:w-1/2 order-2 md:order-1">
                 <h2 className="text-4xl font-bold mb-4">
                   <TypeAnimation
                     sequence={[
@@ -114,14 +114,20 @@ export default function Home() {
                   </Button>
                 </div>
               </div>
-              <div className="md:w-1/2 flex justify-center">
-                <Image
-                  src="/images/profile.jpg"
-                  alt="Divax Shah"
-                  width={300}
-                  height={300}
-                  className="rounded-full border-4 border-primary shadow-lg"
-                />
+              <div className="md:w-1/2 flex justify-center order-1 md:order-2 mb-8 md:mb-0">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  <Image
+                    src="/images/profile.jpg"
+                    alt="Divax Shah"
+                    width={300}
+                    height={300}
+                    className="rounded-full border-4 border-primary shadow-lg"
+                  />
+                </motion.div>
               </div>
             </motion.div>
           </section>
