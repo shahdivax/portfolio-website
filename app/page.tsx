@@ -8,6 +8,7 @@ import { useTheme } from "next-themes"
 import Image from 'next/image'
 import { useRef } from 'react'
 import { TypeAnimation } from 'react-type-animation'
+import { ChatBot } from '@/components/ChatBot'
 
 export default function Home() {
   const [mounted, setMounted] = useState(false)
@@ -28,7 +29,7 @@ export default function Home() {
     setTheme(theme === 'dark' ? 'light' : 'dark')
   }
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100 transition-all duration-300 overflow-hidden">
+    <div className="min-h-screen relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100 transition-all duration-300">
       <motion.div
         className="absolute inset-0 z-0"
         style={{
@@ -333,6 +334,7 @@ export default function Home() {
           <p>&copy; 2024 Divax Shah. All rights reserved.</p>
         </footer>
       </div>
+      <ChatBot />
     </div>
   )
 }

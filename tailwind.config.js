@@ -65,12 +65,34 @@ module.exports = {
             from: { height: "var(--radix-accordion-content-height)" },
             to: { height: 0 },
           },
+          'ping-slow': {
+            '75%, 100%': {
+              transform: 'scale(1.5)',
+              opacity: '0',
+            },
+          },
+          'pulse-ring-slow-1': {
+            '0%': { transform: 'scale(1)', opacity: '0.3' },
+            '50%': { transform: 'scale(1.3)', opacity: '0.15' },
+            '100%': { transform: 'scale(1)', opacity: '0.3' },
+          },
+          'pulse-ring-slow-2': {
+            '0%': { transform: 'scale(1)', opacity: '0.25' },
+            '50%': { transform: 'scale(1.4)', opacity: '0.1' },
+            '100%': { transform: 'scale(1)', opacity: '0.25' },
+          },
         },
         animation: {
           "accordion-down": "accordion-down 0.2s ease-out",
           "accordion-up": "accordion-up 0.2s ease-out",
+          'ping-slow': 'ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite',
+          'pulse-ring-slow-1': 'pulse-ring-slow-1 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          'pulse-ring-slow-2': 'pulse-ring-slow-2 6s cubic-bezier(0.4, 0, 0.6, 1) infinite 3s',
         },
       },
     },
-    plugins: [require("tailwindcss-animate")],
+    plugins: [
+      require("tailwindcss-animate"),
+      require("@tailwindcss/typography"),
+    ],
   }
