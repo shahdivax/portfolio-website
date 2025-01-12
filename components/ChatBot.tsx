@@ -152,37 +152,35 @@ Please maintain this level of detail and accuracy in all responses.`
     }
   }, [])
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (!input.trim()) return
+    if (!input.trim() || isLoading || !chatRef.current) return
+
+    const userMessage: Message = {
+      role: 'user',
+      parts: [{ text: input }]
+    }
+
+    setMessages(prev => [...prev, userMessage])
+    setInput('')
+    setIsLoading(true)
 
     try {
-      setIsLoading(true)
-      const userMessage = { role: 'user', parts: [{ text: input }] }
-      setMessages(prev => [...prev, userMessage])
-      setInput('')
-
-      const model = genAI.getGenerativeModel({ model: "gemini-pro" })
-      const chat = model.startChat({
-        history: messages,
-        generationConfig: {
-          maxOutputTokens: 1000,
-        },
-      })
-
-      const result = await chat.sendMessage(systemPrompt + "\n\nUser: " + input)
+      const result = await chatRef.current.sendMessage(input)
       const response = await result.response
-      
-      if (!response.text()) {
-        throw new Error('Empty response from Gemini')
-      }
+      const text = response.text()
 
-      setMessages(prev => [...prev, { role: 'model', parts: [{ text: response.text() }] }])
-    } catch (error) {
-      console.error('Chat error:', error) // This will help debug
-      setMessages(prev => [...prev, {
+      const assistantMessage: Message = {
         role: 'model',
-        parts: [{ text: `Error: ${error.message}. Please try again.` }]
+        parts: [{ text }]
+      }
+      
+      setMessages(prev => [...prev, assistantMessage])
+    } catch (error) {
+      console.error('Error:', error)
+      setMessages(prev => [...prev, { 
+        role: 'model',
+        parts: [{ text: 'Sorry, I encountered an error. Please try again.' }]
       }])
     } finally {
       setIsLoading(false)
