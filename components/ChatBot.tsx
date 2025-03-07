@@ -42,8 +42,8 @@ Key Projects:
    - Multi-language support and analytics
    - Tech: Flask, llamaindex, PostgreSQL, Cloudinary
 
-2. Sanskrit-llama (https://huggingface.co/diabolic6045/Sanskrit-llama)
-   - Fine-tuned Meta's LLaMA-3-8B model for Sanskrit language
+2. Sanskrit-qwen (https://huggingface.co/diabolic6045/Sanskrit-qwen-7B-Translate)
+   - Fine-tuned Qwen2.5-7B-Instruct-1M model for Sanskrit language
    - Used QLoRA for efficient training
    - Implemented gradient checkpointing, 4-bit quantization
    - Deployed on Hugging Face Hub with interactive demo
@@ -55,7 +55,7 @@ Key Projects:
 
 Technical Skills:
 - Programming Languages: Python, Java, C++
-- Frameworks/Libraries: TensorFlow, Keras, PyTorch, scikit-learn, Transformers, NumPy, Pandas, OpenCV, Flask, Streamlit, Tkinter
+- Frameworks/Libraries: TensorFlow, Keras, PyTorch, scikit-learn, Transformers, NumPy, Pandas, OpenCV, Flask, Streamlit, Tkinter, Langchain
 - AI Services: OpenAI, Google Gemini AI, Mistral AI
 
 Education:
@@ -119,7 +119,7 @@ Example response for project inquiry:
 • Document processing capabilities for PDFs and TXT files
 • Multi-language support
 • Analytics integration
-• Tech stack: Flask, llamaindex, PostgreSQL, Cloudinary"
+• Tech stack: Flask, llamaindex, PostgreSQL, Cloudinary, Langchain"
 
 Please maintain this level of detail and accuracy in all responses.`
 
@@ -214,7 +214,7 @@ Please maintain this level of detail and accuracy in all responses.`
   const suggestedQuestions = [
     "Tell me about his experience at Thinkbiz",
     "What did he work on at DMI Finance?",
-    "Tell me about his Sanskrit-llama project",
+    "Tell me about his Sanskrit-qwen project",
     "What AI frameworks and libraries does he use?", 
     "What is QuizWiz and how does it work?",
   ]

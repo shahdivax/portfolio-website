@@ -228,10 +228,10 @@ export default function Home() {
                   tags={['Flask', 'Firebase', 'Gemini AI']}
                 />
                 <ProjectCard
-                  title="Sanskrit Llama"
-                  description="Sanskrit Llama is a project focused on fine-tuning the Llama-3 language model to translate Vedic Sanskrit texts into English. By leveraging transfer learning techniques and a curated dataset of Sanskrit-English parallel texts, this project aims to make ancient Sanskrit literature more accessible to a wider audience."
+                  title="Sanskrit qwen 7B Translate"
+                  description="Sanskrit qwen is a project focused on fine-tuning the Qwen2.5-7B-Instruct-1M  language model to translate Vedic Sanskrit texts into English. By leveraging Qlora technique and a curated dataset of Sanskrit-English parallel texts, this project aims to make ancient Sanskrit literature more accessible to a wider audience."
                   links={[
-                    { label: 'Model', url: 'https://huggingface.co/diabolic6045/Sanskrit-llama' }
+                    { label: 'Model', url: 'https://huggingface.co/diabolic6045/Sanskrit-qwen-7B-Translate' }
                   ]}
                   tags={['NLP', 'Translation', 'Fine-tuning']}
                 />
