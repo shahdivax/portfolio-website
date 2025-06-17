@@ -2,14 +2,14 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
-import { GoogleGenerativeAI } from '@google/generative-ai'
+import { GoogleGenAI } from "@google/genai";
 import { Send, Loader2, MessageCircle, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { Components } from 'react-markdown'
 
-const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY!)
+const ai = new GoogleGenAI({apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY!})
 
 const resumeData = `
 Divax Shah - AI Developer & Python Developer
@@ -126,17 +126,18 @@ Please maintain this level of detail and accuracy in all responses.`
   useEffect(() => {
     // Initialize chat with system prompt
     const initChat = async () => {
-      const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" })
-      chatRef.current = model.startChat({
-        history: [],
-        generationConfig: {
+      chatRef.current = ai.chats.create({
+        model: "gemini-2.0-flash",
+        config: {
           maxOutputTokens: 500,
         },
       })
       
-      // Send system prompt
+      // Send system prompt as the first message
       try {
-        await chatRef.current.sendMessage(systemPrompt)
+        await chatRef.current.sendMessage({
+          message: systemPrompt
+        })
       } catch (error) {
         console.error('Error initializing chat:', error)
       }
@@ -166,13 +167,13 @@ Please maintain this level of detail and accuracy in all responses.`
     setIsLoading(true)
 
     try {
-      const result = await chatRef.current.sendMessage(input)
-      const response = await result.response
-      const text = response.text()
+      const response = await chatRef.current.sendMessage({
+        message: input
+      })
 
       const assistantMessage: Message = {
         role: 'model',
-        parts: [{ text }]
+        parts: [{ text: response.text }]
       }
       
       setMessages(prev => [...prev, assistantMessage])
@@ -393,4 +394,4 @@ Please maintain this level of detail and accuracy in all responses.`
       </AnimatePresence>
     </>
   )
-} 
+}
