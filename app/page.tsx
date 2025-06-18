@@ -30,14 +30,6 @@ export default function Home() {
   }
   return (
     <div className="min-h-screen relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100 transition-all duration-300">
-      <motion.div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: "url('/images/background-pattern.svg')",
-          backgroundSize: 'cover',
-          y: backgroundY
-        }}
-      />
       <div className="relative z-10">
         <header className="sticky top-0 z-20 backdrop-blur-md bg-white/75 dark:bg-gray-900/75 shadow-sm">
           <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -187,17 +179,23 @@ export default function Home() {
               <h3 className="text-3xl font-bold mb-8">Professional Experience</h3>
               <div className="space-y-8">
                 <ExperienceCard 
-                  title="Jr. Python Developer"
-                  company="Thinkbiz Technology Private Limited"
-                  period="May 2024 - Present"
-                  description="Currently developing an advanced pipeline for Jugaad, Thinkbiz's own product, leveraging OCR (Optical Character Recognition) and LLM (Large Language Model) technologies to extract and process text from various types of invoices. This involves thorough research and evaluation of open-source tools, including OCR systems and language models. Conducted extensive exploration and testing of open-source OCR and LLM tools to determine their efficacy in handling diverse invoice formats and languages. Built and curated specialized datasets to enhance the accuracy and reliability of the text extraction process, ensuring the system's robustness and scalability for real-world applications."
+                  title="AI/ML Engineer"
+                  company="Avinyaa Edtech Private Limited"
+                  period="March 2025 - Present"
+                  description="Currently developing innovative AI models for kreativespace.com, an advanced AI Writing Tools Suite. My primary focus is on creating and enhancing their core offerings, specifically by creating and refining the grammar checker and developing an advanced AI text detection system. This involves fine-tuning Transformer Models, including Masked Language Models (MLM) and Large Language Models (LLMs), to ensure high accuracy and optimal output for these critical features."
                 />
                 <ExperienceCard 
-                  title="AI and Synthetic Data Developer Intern"
-                  company="DMI Finance Private Limited"
-                  period="January 2024 - April 2024"
-                  description="Developed a generative AI system for synthetic structured data generation, from concept to deployment. This involved creating a pipeline with Python and Gradio for data cleaning, deduplication, and embedding, enhancing data quality for generative models. Additionally, I designed a robust training framework using PyTorch and Hugging Face's Transformers, enabling fine-tuning Large Language Models (LLMs) with diverse datasets, significantly improving model accuracy and performance. Introduced a user-friendly Gradio interface to streamline synthetic structured data generation, facilitating easy data synthesis for users and enhancing customer interaction with the system. This interface significantly simplified the synthetic structured data generation process for users."
+                  title="Jr. Python Developer"
+                  company="Thinkbiz Technology Private Limited"
+                  period="May 2024 - March 2025"
+                  description="Developed an advanced pipeline for Jugaad, Thinkbiz's own product, leveraging OCR (Optical Character Recognition) and LLM (Large Language Model) technologies to extract and process text from various types of invoices. This involved thorough research and evaluation of open-source tools, including OCR systems and language models. Conducted extensive exploration and testing of open-source OCR and LLM tools to determine their efficacy in handling diverse invoice formats and languages. Built and curated specialized datasets to enhance the accuracy and reliability of the text extraction process, ensuring the system's robustness and scalability for real-world applications."
                 />
+                <ExperienceCard 
+                title="AI and Synthetic Data Developer Intern"
+                company="DMI Finance Private Limited"
+                period="January 2024 - April 2024"
+                description="Developed a generative AI system for synthetic structured data generation, from concept to deployment. This involved creating a pipeline with Python and Gradio for data cleaning, deduplication, and embedding, enhancing data quality for generative models. Additionally, I designed a robust training framework using PyTorch and Hugging Face's Transformers, enabling fine-tuning Large Language Models (LLMs) with diverse datasets, significantly improving model accuracy and performance. Introduced a user-friendly Gradio interface to streamline synthetic structured data generation, facilitating easy data synthesis for users and enhancing customer interaction with the system. This interface significantly simplified the synthetic structured data generation process for users."
+              />
               </div>
             </motion.div>
           </section>
@@ -215,17 +213,9 @@ export default function Home() {
                   description="QuizWiz is an advanced, AI-powered chatbot creation platform that enables users to build, deploy, and interact with custom chatbots. It offers a user-friendly interface for creating intelligent conversational agents tailored to specific domains or purposes, leveraging cutting-edge natural language processing technologies."
                   links={[
                     { label: 'Website', url: 'https://quiz-wiz-official.vercel.app/' },
-                    { label: 'App', url: 'https://diabolic6045-quizwiz.hf.space/' }
+                    // { label: 'App', url: 'https://diabolic6045-quizwiz.hf.space/' }
                   ]}
-                  tags={['NLP', 'Chatbot', 'Flask']}
-                />
-                <ProjectCard
-                  title="Something"
-                  description="Something is a powerful, user-friendly web application designed to keep investors informed with the latest, most relevant news about their stock portfolio. By aggregating news from multiple trusted sources and using AI to summarize key points, Something ensures you never miss crucial information that could impact your investments."
-                  links={[
-                    { label: 'App', url: 'https://something-atep.onrender.com' }
-                  ]}
-                  tags={['Flask', 'Firebase', 'Gemini AI']}
+                  tags={['NLP', 'Chatbot', 'Flask', 'Mistral-AI-API', 'Gemini-API']}
                 />
                 <ProjectCard
                   title="Sanskrit qwen 7B Translate"
@@ -233,7 +223,7 @@ export default function Home() {
                   links={[
                     { label: 'Model', url: 'https://huggingface.co/diabolic6045/Sanskrit-qwen-7B-Translate' }
                   ]}
-                  tags={['NLP', 'Translation', 'Fine-tuning']}
+                  tags={['LLM', 'Translation', 'Fine-tuning', 'Sanskrit', 'Qwen-2.5-7B-Instruct-1M']}
                 />
                 <ProjectCard 
                   title="Geolocation through Image Classification"
@@ -249,7 +239,7 @@ export default function Home() {
                   links={[
                     { label: 'Model', url: 'https://huggingface.co/diabolic6045/tony_stark_chatbot' }
                   ]}
-                  tags={['NLP', 'Chatbot', 'HuggingFace']}
+                  tags={['LLM', 'Chatbot', 'Fine-tuning', 'DialoGPT-medium']}
                 />
                 <ProjectCard 
                   title="Itinerary Generator"
@@ -257,7 +247,7 @@ export default function Home() {
                   links={[
                     { label: 'Model', url: 'https://huggingface.co/diabolic6045/itineraries_Generator' }
                   ]}
-                  tags={['NLP', 'GPT-2', 'Fine-tuning']}
+                  tags={['LLM', 'GPT-2', 'Fine-tuning']}
                 />
                 <ProjectCard 
                   title="Synthetic Data Generation"
@@ -265,7 +255,15 @@ export default function Home() {
                   links={[
                     { label: 'Paper', url: '/documents/divax-recco.pdf' }
                   ]}
-                  tags={['Generative AI', 'Data Synthesis', 'PyTorch']}
+                  tags={['Generative AI', 'Data Synthesis', 'PyTorch', 'Fine-tuning' , 'Llama-2']}
+                />
+                <ProjectCard
+                  title="Something"
+                  description="Something is a powerful, user-friendly web application designed to keep investors informed with the latest, most relevant news about their stock portfolio. By aggregating news from multiple trusted sources and using AI to summarize key points, Something ensures you never miss crucial information that could impact your investments."
+                  links={[
+                    { label: 'App', url: 'https://something-atep.onrender.com' }
+                  ]}
+                  tags={['Flask', 'Firebase', 'Gemini AI']}
                 />
               </div>
             </motion.div>
@@ -293,10 +291,17 @@ export default function Home() {
                 animate="show"
               >
                 {[
-                  'Python', 'PyTorch', 'TensorFlow', 
-                  'Natural Language Processing', 'Computer Vision',
-                  'HuggingFace Transformers', 'OpenAI API',
-                  'Google Gemini API', 'Streamlit'
+                  'PyTorch', 'TensorFlow / Keras', 'HuggingFace Transformers',
+                  'scikit-learn', 'LangChain', 'NumPy & Pandas',
+
+                  // AI Specializations & Techniques
+                  'Natural Language Processing (NLP)', 'Computer Vision (CV)',
+                  'LLM Fine-tuning', 'Generative AI',
+                  'Prompt Engineering', 'Reinforcement Learning (RL)',
+
+                  // LLM Ecosystem & Tools
+                  'Axolotl', 'Unsloth',
+                  'OpenAI API', 'Google Gemini API', 'Anthropic API', 'Mistral AI API',
                 ].map((skill) => (
                   <motion.div
                     key={skill}
@@ -331,7 +336,7 @@ export default function Home() {
         </main>
 
         <footer className="mt-20 py-8 text-center text-sm bg-gray-100 dark:bg-gray-800">
-          <p>&copy; 2024 Divax Shah. All rights reserved.</p>
+          <p>&copy; 2025 Divax Shah. All rights reserved.</p>
         </footer>
       </div>
       <ChatBot />
